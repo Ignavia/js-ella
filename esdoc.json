@@ -1,0 +1,8 @@
+{
+    "source": "./src",
+    "destination": "./doc",
+    "access": ["public", "protected"],
+    "title": "JavaScript Ella",
+    "index": "./README.md",
+    "package": "./package.json"
+}
