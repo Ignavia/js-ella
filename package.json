@@ -3,7 +3,7 @@
   "description": "Linear algebra stuff.",
   "keywords": "linear-algebra",
   "license": "MIT",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "main": "dist/ella.js",
   "scripts": {
     "build": "jspm build ./src/ella.js ./dist/ella.js --format umd --global-name \"IGNAVIA_ELLA\" --global-deps \"{}\" --skip-source-maps --minify",
