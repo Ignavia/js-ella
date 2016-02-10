@@ -1,8 +1,10 @@
 {
     "source": "./src",
     "destination": "./doc",
-    "access": ["public", "protected"],
-    "title": "JavaScript Ella",
     "index": "./README.md",
-    "package": "./package.json"
+    "package": "./package.json",
+    "title": "JavaScript Ella",
+    "manual": {
+        "changelog": ["CHANGELOG.md"]
+    }
 }
