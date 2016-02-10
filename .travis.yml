@@ -8,8 +8,7 @@ script: # run tests
 before_deploy: # install JSPM dependencies and create the bundle and the doc
 - jspm config registries.github.auth $GITHUB_AUTH_TOKEN
 - jspm install
-- NODE_ENV=production
-- npm run build
+- BABEL_ENV=production npm run build
 - npm run doc
 deploy:
 - provider: releases #add bundle and documentation to master
