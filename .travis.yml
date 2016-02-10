@@ -13,9 +13,10 @@ before_deploy: # install JSPM dependencies and create the bundle and the doc
 deploy:
 - provider: releases #add bundle and documentation to master
   api_key: "$GITHUB_API_KEY"
+  file_glob: true
   file:
   - "dist/ella.js"
-  - "doc"
+  - "doc/*"
   skip_cleanup: true
   on:
     tags: true
