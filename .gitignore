@@ -1,5 +1,3 @@
 jspm_packages/
 node_modules/
-dist/
-doc/
 coverage/
