@@ -103,8 +103,8 @@
             "type": "Identifier",
             "name": "Vec2Builder",
             "range": [
-              69,
-              80
+              70,
+              81
             ],
             "loc": {
               "start": {
@@ -121,8 +121,8 @@
             "type": "Identifier",
             "name": "default",
             "range": [
-              58,
-              65
+              59,
+              66
             ],
             "loc": {
               "start": {
@@ -136,8 +136,8 @@
             }
           },
           "range": [
-            58,
-            80
+            59,
+            81
           ],
           "loc": {
             "start": {
@@ -156,8 +156,8 @@
         "value": "./Vec2Builder.js",
         "raw": "\"./Vec2Builder.js\"",
         "range": [
-          87,
-          105
+          88,
+          106
         ],
         "loc": {
           "start": {
@@ -171,8 +171,8 @@
         }
       },
       "range": [
-        50,
-        106
+        51,
+        107
       ],
       "loc": {
         "start": {
@@ -189,7 +189,7 @@
   "sourceType": "module",
   "range": [
     0,
-    106
+    107
   ],
   "loc": {
     "start": {

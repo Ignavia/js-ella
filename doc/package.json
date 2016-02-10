@@ -1,18 +1,37 @@
 {
   "name": "@ignavia/ella",
+  "version": "1.0.4",
   "description": "Linear algebra stuff.",
-  "keywords": "linear-algebra",
-  "license": "ISC",
-  "version": "1.0.1",
+  "keywords": [
+    "linear-algebra",
+    "math",
+    "maths"
+  ],
+  "bugs": "https://github.com/Ignavia/js-ella/issues",
+  "license": "MIT",
+  "author": "Lars Reimann <mail@lars-reimann.eu> (http://lars-reimann.eu)",
+  "files": [
+    "dist/"
+  ],
   "main": "dist/ella.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Ignavia/js-ella.git"
+  },
   "scripts": {
     "build": "jspm build ./src/ella.js ./dist/ella.js --format umd --global-name \"IGNAVIA_ELLA\" --global-deps \"{}\" --skip-source-maps --minify",
+    "coverage": "babel-node node_modules/isparta/bin/isparta cover --report text --report html node_modules/mocha/bin/_mocha -- --reporter dot",
+    "doc": "esdoc -c esdoc.json",
     "prepublish": "npm run build",
-    "doc": "esdoc -c esdoc.json"
+    "test": "mocha --compilers js:babel-register"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "esdoc": "^0.4.4"
   },
   "jspmPackage": true,
   "registry": "npm",
-  "format": "esm",
+  "format": "cjs",
   "jspm": {
     "name": "@ignavia/ella",
     "devDependencies": {
