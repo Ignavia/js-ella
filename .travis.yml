@@ -11,12 +11,11 @@ before_deploy: # install JSPM dependencies and create the bundle and the doc
 - BABEL_ENV=production npm run build
 - npm run doc
 deploy:
-- provider: releases #add bundle and documentation to master
+- provider: releases #add bundle
   api_key: "$GITHUB_API_KEY"
   file_glob: true
   file:
   - "dist/ella.js"
-  - "doc/**/*"
   skip_cleanup: true
   on:
     tags: true
