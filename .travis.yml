@@ -6,13 +6,13 @@ install: # install NPM dependencies
 script: # run tests
 - npm run test
 before_deploy: # install JSPM dependencies and create the bundle and the doc
-- jspm config registries.github.auth $GITHUB_AUTH_TOKEN
+- jspm config registries.github.auth $GITHUB_API_KEY
 - jspm install
 - BABEL_ENV=production npm run build
 - npm run doc
 deploy:
 - provider: releases #add bundle and documentation to master
-  api_key: "$GITHUB_AUTH_TOKEN"
+  api_key: "$GITHUB_API_KEY"
   file:
   - "dist/ella.js"
   - "doc/*"
@@ -31,4 +31,4 @@ after_deploy: # upload doc to gh-pages
 - git config user.email "mail@lars-reimann.eu"
 - git add .
 - git commit -m "Deploying to GitHub Pages"
-- git push -fq "https://$GITHUB_AUTH_TOKEN@github.com/Ignavia/js-ella" master:gh-pages > /dev/null 2>&1
+- git push -fq "https://$GITHUB_API_KEY@github.com/Ignavia/js-ella" master:gh-pages > /dev/null 2>&1
