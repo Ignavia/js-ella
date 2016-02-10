@@ -10,6 +10,7 @@ before_deploy:
 - jspm install
 - NODE_ENV=production
 - npm run build
+- npm run doc
 deploy:
 - provider: npm
   api_key:
@@ -18,7 +19,9 @@ deploy:
     tags: true
 - provider: releases
   api_key: $GITHUB_AUTH_TOKEN
-  file: "dist/ella.js"
+  file:
+  - "dist/ella.js"
+  - "doc/*"
   skip_cleanup: true
   on:
     tags: true
