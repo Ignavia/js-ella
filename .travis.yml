@@ -15,7 +15,7 @@ deploy:
   api_key: "$GITHUB_API_KEY"
   file:
   - "dist/ella.js"
-  - "doc/*"
+  - "doc"
   skip_cleanup: true
   on:
     tags: true
