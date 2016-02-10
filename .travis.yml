@@ -12,7 +12,7 @@ before_deploy: # install JSPM dependencies and create the bundle and the doc
 - npm run doc
 deploy:
 - provider: releases #add bundle and documentation to master
-  api_key: $GITHUB_AUTH_TOKEN
+  api_key: "$GITHUB_AUTH_TOKEN"
   file:
   - "dist/ella.js"
   - "doc/*"
