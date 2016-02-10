@@ -16,7 +16,7 @@ deploy:
   file_glob: true
   file:
   - "dist/ella.js"
-  - "doc/*"
+  - "doc/**/*"
   skip_cleanup: true
   on:
     tags: true
