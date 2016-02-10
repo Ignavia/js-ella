@@ -22,7 +22,6 @@
     "build": "jspm build ./src/ella.js ./dist/ella.js --format umd --global-name \"IGNAVIA_ELLA\" --global-deps \"{}\" --skip-source-maps --minify",
     "coverage": "babel-node node_modules/isparta/bin/isparta cover --report text --report html node_modules/mocha/bin/_mocha -- --reporter dot",
     "doc": "esdoc -c esdoc.json",
-    "prepublish": "npm run build",
     "test": "mocha --compilers js:babel-register"
   },
   "dependencies": {},
