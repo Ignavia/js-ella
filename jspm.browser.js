@@ -1,8 +1,8 @@
 SystemJS.config({
-  baseURL: "/",
-  paths: {
-    "github:*": "jspm_packages/github/*",
-    "npm:*": "jspm_packages/npm/*",
-    "@ignavia/ella/": "src/"
-  }
+    baseURL: "/",
+    paths: {
+        "github:*": "jspm_packages/github/*",
+        "npm:*": "jspm_packages/npm/*",
+        "@ignavia/ella/": "src/"
+    }
 });

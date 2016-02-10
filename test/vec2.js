@@ -2,7 +2,7 @@
 /* global it */
 import {expect} from "chai";
 
-import {Vec2} from "@ignavia/ella";
+import {Vec2} from "../src/ella.js";
 
 /** @test {Vec2} */
 describe("Vec2", function () {
@@ -10,7 +10,7 @@ describe("Vec2", function () {
     /** @test {Vec2#add} */
     describe("#add", function() {
         const v0 = new Vec2(1, 0),
-            v1 = new Vec2(0, 1);
+              v1 = new Vec2(0, 1);
 
         it("should leave the original vectors untouched", function () {
             v0.add(v1);
@@ -30,7 +30,7 @@ describe("Vec2", function () {
     /** @test {Vec2#sub} */
     describe("#sub", function() {
         const v0 = new Vec2(1, 0),
-            v1 = new Vec2(0, 1);
+              v1 = new Vec2(0, 1);
 
         it("should leave the original vectors untouched", function () {
             v0.sub(v1);
@@ -103,15 +103,15 @@ describe("Vec2", function () {
 
         it("should return a vector with length 1 pointing in the same direction", function () {
             const v1 = v0.normalize();
-            expect(v1.x).to.be.closeTo(0.6, 0.001);
-            expect(v1.y).to.be.closeTo(0.8, 0.001);
+            expect(v1.x).to.be.closeTo(0.6, Number.EPSILON);
+            expect(v1.y).to.be.closeTo(0.8, Number.EPSILON);
         });
     });
 
     /** @test {Vec2#dot} */
     describe("#dot", function() {
         const v0 = new Vec2(1, 0),
-            v1 = new Vec2(0, 1);
+              v1 = new Vec2(0, 1);
 
         it("should return the dot product of the vectors", function () {
             const r0 = v0.dot(v1);
@@ -131,8 +131,8 @@ describe("Vec2", function () {
 
         it("should return the rotated vector", function () {
             const v1 = v0.rotate(Math.PI / 2);
-            expect(v1.x).to.be.closeTo(0, 0.001);
-            expect(v1.y).to.be.closeTo(1, 0.001);
+            expect(v1.x).to.be.closeTo(0, Number.EPSILON);
+            expect(v1.y).to.be.closeTo(1, Number.EPSILON);
         });
     });
 

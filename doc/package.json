@@ -27,17 +27,22 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "esdoc": "^0.4.4"
+    "babel-cli": "^6.5.1",
+    "babel-preset-es2015": "^6.5.0",
+    "babel-register": "^6.5.1",
+    "chai": "^3.5.0",
+    "esdoc": "^0.4.4",
+    "isparta": "^4.0.0",
+    "jspm": "^0.17.0-beta.6",
+    "mocha": "^2.4.5"
   },
   "jspmPackage": true,
   "registry": "npm",
   "format": "cjs",
   "jspm": {
     "name": "@ignavia/ella",
+    "dependencies": {},
     "devDependencies": {
-      "chai": "^3.5.0",
-      "clean-css": "^3.4.9",
-      "mocha": "^2.4.5",
       "plugin-babel": "systemjs-plugin-babel@^0.0.2"
     },
     "peerDependencies": {
@@ -61,22 +66,6 @@
         "ignore": [
           "test.js"
         ]
-      },
-      "npm:mocha@2.4.5": {
-        "browser": "mocha",
-        "main": "mocha",
-        "dependencies": {
-          "css": "*"
-        },
-        "registry": "jspm",
-        "meta": {
-          "mocha.js": {
-            "deps": [
-              "./mocha.css!"
-            ],
-            "exports": "mocha"
-          }
-        }
       }
     }
   }
