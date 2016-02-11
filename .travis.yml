@@ -11,8 +11,10 @@ before_deploy: # install JSPM dependencies and create the bundle and the doc
 - BABEL_ENV=production npm run build
 - npm run doc
 deploy:
-- provider: npm # publish bundle on NPM
+  provider: npm # publish bundle on NPM
+  email: "mail@lars-reimann.eu"
   api_key: "$NPM_AUTH_TOKEN"
+  skip_cleanup: true
   on:
     tags: true
 after_deploy: # upload doc to gh-pages
