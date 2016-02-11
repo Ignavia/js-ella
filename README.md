@@ -6,4 +6,4 @@ Linear algebra stuff.
 
 ### API Documentation
 
-You can find the API Documentation of the latest release [here](http://ignavia.github.io/js-ella).
+You can find the API documentation of the latest release [here](http://ignavia.github.io/js-ella).
