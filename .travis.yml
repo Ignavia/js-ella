@@ -24,4 +24,4 @@ after_deploy: # upload doc to gh-pages
 - git config user.email "mail@lars-reimann.eu"
 - git add .
 - git commit -m "Deploying to GitHub Pages"
-- git push -fq "https://$GITHUB_API_KEY@github.com/$GITHUB_REPO" master:gh-pages > /dev/null 2>&1
+- git push -fq "https://$GITHUB_API_KEY@github.com/$TRAVIS_REPO_SLUG" master:gh-pages > /dev/null 2>&1
