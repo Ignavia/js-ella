@@ -143,7 +143,7 @@ export default class Vec2Builder {
      * The y coordinate of the other vector.
      *
      * @return {Number}
-     * The dot product of the two vectors.
+     * This vector.
      */
     dot(x, y) {
         return this.x * x + this.y * y;
@@ -156,13 +156,13 @@ export default class Vec2Builder {
      * The angle by which to rotate given in radians.
      *
      * @return {Vec2}
-     * The rotated vector.
+     * This vector.
      */
     rotate(alpha) {
-        const cos = Math.cos(alpha),
-              sin = Math.sin(alpha),
-              x   = this.x,
-              y   = this.y;
+        const cos = Math.cos(alpha);
+        const sin = Math.sin(alpha);
+        const x   = this.x;
+        const y   = this.y;
 
         this.x = x * cos - y * sin;
         this.y = x * sin + y * cos;

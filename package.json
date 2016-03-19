@@ -28,11 +28,12 @@
   "dependencies": {},
   "devDependencies": {
     "babel-cli": "^6.5.1",
+    "babel-plugin-transform-export-extensions": "^6.5.0",
     "babel-preset-es2015": "^6.5.0",
-    "babel-preset-stage-0": "^6.5.0",
     "babel-register": "^6.5.1",
     "chai": "^3.5.0",
     "esdoc": "^0.4.4",
+    "esdoc-es7-plugin": "0.0.3",
     "isparta": "^4.0.0",
     "jspm": "^0.17.0-beta.6",
     "mocha": "^2.4.5"
@@ -44,7 +45,7 @@
     "name": "@ignavia/ella",
     "dependencies": {},
     "devDependencies": {
-      "babel-preset-stage-0": "^6.5.0",
+      "babel-plugin-transform-export-extensions": "^6.5.0",
       "plugin-babel": "systemjs-plugin-babel@^0.0.2"
     },
     "peerDependencies": {

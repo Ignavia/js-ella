@@ -83,7 +83,8 @@ export default class Vec2 {
     }
 
     /**
-     * Calculates the length of the vector.
+     * Calculates the length of the vector. The original vector remains
+     * unaffected.
      *
      * @return {Number}
      * The length of the vector.
@@ -104,7 +105,8 @@ export default class Vec2 {
     }
 
     /**
-     * Calculates the dot product of this vector and the given vector.
+     * Calculates the dot product of this vector and the given vector. The
+     * original vectors remain unaffected.
      *
      * @param {Vec2} v
      * The second argument.
@@ -127,11 +129,13 @@ export default class Vec2 {
      * The rotated vector.
      */
     rotate(alpha) {
-        const cos = Math.cos(alpha),
-              sin = Math.sin(alpha);
+        const cos = Math.cos(alpha);
+        const sin = Math.sin(alpha);
 
-        return new Vec2(this.x * cos - this.y * sin,
-                    this.x * sin + this.y * cos);
+        return new Vec2(
+            this.x * cos - this.y * sin,
+            this.x * sin + this.y * cos
+        );
     }
 
     /**
