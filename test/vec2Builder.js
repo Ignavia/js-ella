@@ -15,7 +15,7 @@ describe("Vec2Builder", function () {
         });
     });
 
-    describe("#add", function() {
+    describe("#add", function () {
         it("should add the vector", function () {
             this.v0.add(0, 1);
             expect(this.v0.x).to.equal(1);
@@ -28,7 +28,7 @@ describe("Vec2Builder", function () {
         });
     });
 
-    describe("#sub", function() {
+    describe("#sub", function () {
         it("should subtract the vector", function () {
             this.v0.sub(0, 1);
             expect(this.v0.x).to.equal(1);
@@ -41,7 +41,7 @@ describe("Vec2Builder", function () {
         });
     });
 
-    describe("#mul", function() {
+    describe("#mul", function () {
         it("should multiply the vector with the scalar", function () {
             this.v0.mul(2);
             expect(this.v0.x).to.equal(2);
@@ -54,7 +54,7 @@ describe("Vec2Builder", function () {
         });
     });
 
-    describe("#div", function() {
+    describe("#div", function () {
         it("should divide the vector by the scalar", function () {
             this.v0.div(2);
             expect(this.v0.x).to.equal(0.5);
@@ -67,7 +67,7 @@ describe("Vec2Builder", function () {
         });
     });
 
-    describe("#length", function() {
+    describe("#length", function () {
         const v0 = new Vec2Builder(3, 4);
 
         it("should return the length of the vector", function () {
@@ -76,7 +76,7 @@ describe("Vec2Builder", function () {
         });
     });
 
-    describe("#normalize", function() {
+    describe("#normalize", function () {
         const v0 = new Vec2Builder(3, 4);
 
         it("should set the length of this vector to 1 while maintaining its direction", function () {
@@ -91,14 +91,14 @@ describe("Vec2Builder", function () {
         });
     });
 
-    describe("#dot", function() {
+    describe("#dot", function () {
         it("should return the dot product of the vectors", function () {
             const r0 = this.v0.dot(0, 1);
             expect(r0).to.equal(0);
         });
     });
 
-    describe("#rotate", function() {
+    describe("#rotate", function () {
         it("should rotate the vector", function () {
             this.v0.rotate(Math.PI / 2);
             expect(this.v0.x).to.be.closeTo(0, Number.EPSILON);
@@ -119,9 +119,17 @@ describe("Vec2Builder", function () {
         });
     });
 
-    describe("#toString", function() {
+    describe("#toString", function () {
         it("should return a string", function () {
             expect(this.v0.toString()).to.be.a("string");
+        });
+    });
+
+    describe("#equals", function () {
+        it ("should check if another vector is equivalent", function () {
+            const v1 = new Vec2Builder(3, 4);
+            expect(this.v0.equals(this.v0)).to.be.true;
+            expect(this.v0.equals(v1)).to.be.false;
         });
     });
 

@@ -8,7 +8,7 @@ describe("Vec2", function () {
         this.v1 = new Vec2(0, 1);
     });
 
-    describe("#add", function() {
+    describe("#add", function () {
         it("should leave the original vectors untouched", function () {
             this.v0.add(this.v1);
             expect(this.v0.x).to.equal(1);
@@ -24,7 +24,7 @@ describe("Vec2", function () {
         });
     });
 
-    describe("#sub", function() {
+    describe("#sub", function () {
         it("should leave the original vectors untouched", function () {
             this.v0.sub(this.v1);
             expect(this.v0.x).to.equal(1);
@@ -40,7 +40,7 @@ describe("Vec2", function () {
         });
     });
 
-    describe("#mul", function() {
+    describe("#mul", function () {
         it("should leave the original vector untouched", function () {
             this.v0.mul(2);
             expect(this.v0.x).to.equal(1);
@@ -54,7 +54,7 @@ describe("Vec2", function () {
         });
     });
 
-    describe("#div", function() {
+    describe("#div", function () {
         it("should leave the original vector untouched", function () {
             this.v0.div(2);
             expect(this.v0.x).to.equal(1);
@@ -68,7 +68,7 @@ describe("Vec2", function () {
         });
     });
 
-    describe("#length", function() {
+    describe("#length", function () {
         const v0 = new Vec2(3, 4);
 
         it("should return the length of the vector", function () {
@@ -77,7 +77,7 @@ describe("Vec2", function () {
         });
     });
 
-    describe("#normalize", function() {
+    describe("#normalize", function () {
         const v0 = new Vec2(3, 4);
 
         it("should leave the original vector untouched", function () {
@@ -93,14 +93,14 @@ describe("Vec2", function () {
         });
     });
 
-    describe("#dot", function() {
+    describe("#dot", function () {
         it("should return the dot product of the vectors", function () {
             const r0 = this.v0.dot(this.v1);
             expect(r0).to.equal(0);
         });
     });
 
-    describe("#rotate", function() {
+    describe("#rotate", function () {
         it("should leave the original vector untouched", function () {
             this.v0.rotate(Math.PI / 2);
             expect(this.v0.x).to.equal(1);
@@ -114,9 +114,21 @@ describe("Vec2", function () {
         });
     });
 
-    describe("#toString", function() {
+    describe("#toString", function () {
         it("should return a string", function () {
             expect(this.v0.toString()).to.be.a("string");
         });
+    });
+
+    describe("#equals", function () {
+        it ("should check if another vector is equivalent", function () {
+            expect(this.v0.equals(this.v0)).to.be.true;
+            expect(this.v1.equals(this.v0)).to.be.false;
+        });
+    });
+
+    after(function () {
+        delete this.v0;
+        delete this.v1;
     });
 });

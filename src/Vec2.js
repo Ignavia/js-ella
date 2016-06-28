@@ -4,10 +4,10 @@
 export default class Vec2 {
 
     /**
-     * @param {Number} x
+     * @param {number} x
      * The x-coordinate.
      *
-     * @param {Number} y
+     * @param {number} y
      * The y-coordinate.
      */
     constructor(x, y) {
@@ -15,14 +15,14 @@ export default class Vec2 {
         /**
          * The x-coordinate.
          *
-         * @type {Number}
+         * @type {number}
          */
         this.x = x;
 
         /**
          * The y-coordinate.
          *
-         * @type {Number}
+         * @type {number}
          */
         this.y = y;
     }
@@ -59,7 +59,7 @@ export default class Vec2 {
      * Multiplies this vector by a scalar. The original vector remains
      * unaffected.
      *
-     * @param {Number} s
+     * @param {number} s
      * The scalar by which the vector gets multiplied.
      *
      * @return {Vec2}
@@ -72,7 +72,7 @@ export default class Vec2 {
     /**
      * Divides this vector by a scalar. The original vector remains unaffected.
      *
-     * @param {Number} s
+     * @param {number} s
      * The scalar by which the vector gets divided.
      *
      * @return {Vec2}
@@ -86,7 +86,7 @@ export default class Vec2 {
      * Calculates the length of the vector. The original vector remains
      * unaffected.
      *
-     * @return {Number}
+     * @return {number}
      * The length of the vector.
      */
     length() {
@@ -111,7 +111,7 @@ export default class Vec2 {
      * @param {Vec2} v
      * The second argument.
      *
-     * @return {Number}
+     * @return {number}
      * The dot product of the two vectors.
      */
     dot(v) {
@@ -122,7 +122,7 @@ export default class Vec2 {
      * Rotates this vector by the given angle. The original vector remains
      * unaffected.
      *
-     * @param {Number} alpha
+     * @param {number} alpha
      * The angle by which to rotate given in radians.
      *
      * @return {Vec2}
@@ -141,12 +141,25 @@ export default class Vec2 {
     /**
      * Returns a textual representation of this vector.
      *
-     * @return {String}
+     * @return {string}
      * A textual representation of this vector.
      *
      * @override
      */
     toString() {
         return `(${this.x}, ${this.y})`;
+    }
+
+    /**
+     * Checks if the given vector is equivalent to this one.
+     *
+     * @param {Vec2} v
+     * The vector to compare to.
+     *
+     * @return {boolean}
+     * The result of the test.
+     */
+    equals(v) {
+        return this.x === v.x && this.y === v.y;
     }
 }

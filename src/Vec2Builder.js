@@ -21,10 +21,10 @@ export default class Vec2Builder {
     }
 
     /**
-     * @param {Number} x
+     * @param {number} x
      * The x-coordinate.
      *
-     * @param {Number} y
+     * @param {number} y
      * The y-coordinate.
      */
     constructor(x, y) {
@@ -32,14 +32,14 @@ export default class Vec2Builder {
         /**
          * The x-coordinate.
          *
-         * @type {Number}
+         * @type {number}
          */
         this.x = x;
 
         /**
          * The y-coordinate.
          *
-         * @type {Number}
+         * @type {number}
          */
         this.y = y;
     }
@@ -47,10 +47,10 @@ export default class Vec2Builder {
     /**
      * Adds another vector to this one.
      *
-     * @param {Number} x
+     * @param {number} x
      * The x coordinate of the vector to add.
      *
-     * @param {Number} y
+     * @param {number} y
      * The y coordinate of the vector to add.
      *
      * @return {Vec2Builder}
@@ -65,10 +65,10 @@ export default class Vec2Builder {
     /**
      * Subtracts another vector from this one.
      *
-     * @param {Number} x
+     * @param {number} x
      * The x coordinate of the vector to subtract.
      *
-     * @param {Number} y
+     * @param {number} y
      * The y coordinate of the vector to subtract.
      *
      * @return {Vec2Builder}
@@ -83,7 +83,7 @@ export default class Vec2Builder {
     /**
      * Multiplies this vector with a scalar.
      *
-     * @param {Number} s
+     * @param {number} s
      * The scalar to multiply with.
      *
      * @return {Vec2Builder}
@@ -98,7 +98,7 @@ export default class Vec2Builder {
     /**
      * Divides this vector by a scalar.
      *
-     * @param {Number} s
+     * @param {number} s
      * The scalar to divide by.
      *
      * @return {Vec2Builder}
@@ -113,7 +113,7 @@ export default class Vec2Builder {
     /**
      * Calculates the length of this vector.
      *
-     * @return {Number}
+     * @return {number}
      * The length of the vector.
      */
     length() {
@@ -136,13 +136,13 @@ export default class Vec2Builder {
     /**
      * Calculates the dot product of this vector and the given one.
      *
-     * @param {Number} x
+     * @param {number} x
      * The x coordinate of the other vector.
      *
-     * @param {Number} y
+     * @param {number} y
      * The y coordinate of the other vector.
      *
-     * @return {Number}
+     * @return {number}
      * This vector.
      */
     dot(x, y) {
@@ -152,7 +152,7 @@ export default class Vec2Builder {
     /**
      * Rotates this vector by the given angle.
      *
-     * @param {Number} alpha
+     * @param {number} alpha
      * The angle by which to rotate given in radians.
      *
      * @return {Vec2}
@@ -183,12 +183,25 @@ export default class Vec2Builder {
     /**
      * Returns a textual representation of this vector.
      *
-     * @return {String}
+     * @return {string}
      * A textual representation of this vector.
      *
      * @override
      */
     toString() {
         return `(${this.x}, ${this.y})`;
+    }
+
+    /**
+     * Checks if the given vector is equivalent to this one.
+     *
+     * @param {Vec2} v
+     * The vector to compare to.
+     *
+     * @return {boolean}
+     * The result of the test.
+     */
+    equals(v) {
+        return this.x === v.x && this.y === v.y;
     }
 }
