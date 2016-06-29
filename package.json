@@ -20,7 +20,7 @@
     "url": "https://github.com/Ignavia/js-ella.git"
   },
   "scripts": {
-    "build": "jspm build ./src/ella.js ./dist/ella.js --format cjs --skip-source-maps --minify",
+    "build": "jspm build ./src/index.js ./dist/ella.js --format cjs --skip-source-maps --minify",
     "doc": "esdoc -c esdoc.json",
     "test": "mocha --compilers js:babel-register"
   },
@@ -53,6 +53,7 @@
       "plugin-babel": "systemjs-plugin-babel@^0.0.2"
     },
     "peerDependencies": {
+      "assert": "github:jspm/nodelibs-assert@^0.2.0-alpha",
       "buffer": "github:jspm/nodelibs-buffer@^0.2.0-alpha",
       "core-js": "^1.2.0",
       "events": "github:jspm/nodelibs-events@^0.2.0-alpha",
@@ -79,4 +80,4 @@
       }
     }
   }
-}
+}

@@ -4,6 +4,19 @@
 export default class Vec2 {
 
     /**
+     * Creates a Vec2 object from the given plain object.
+     *
+     * @param {Object} json
+     * The plain object to parse.
+     *
+     * @return {Vec2}
+     * The created vector.
+     */
+    static fromJSON(json) {
+        return new Vec2(json.x, json.y);
+    }
+
+    /**
      * @param {number} x
      * The x-coordinate.
      *
@@ -161,5 +174,18 @@ export default class Vec2 {
      */
     equals(v) {
         return this.x === v.x && this.y === v.y;
+    }
+
+    /**
+     * Serializes this vector.
+     *
+     * @return {Object}
+     * The serialized vector.
+     */
+    toJSON() {
+        return {
+            x: this.x,
+            y: this.y,
+        };
     }
 }

@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.2.0 (2016-06-29)
+
+* Added methods `toJSON` and `fromJSON` to Vec2 and Vec2Builder.
+
 ## 1.1.0 (2016-06-28)
 
 * Added `equals` methods to both Vec2 and Vec2Builder.

@@ -47,6 +47,7 @@ SystemJS.config({
         "github:*/*.json"
     ],
     map: {
+        "assert": "github:jspm/nodelibs-assert@0.2.0-alpha",
         "buffer": "github:jspm/nodelibs-buffer@0.2.0-alpha",
         "core-js": "npm:core-js@1.2.6",
         "events": "github:jspm/nodelibs-events@0.2.0-alpha",

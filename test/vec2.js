@@ -1,11 +1,21 @@
 import {expect} from "chai";
 
-import {Vec2} from "../src/ella.js";
+import {Vec2} from "../src/index.js";
 
 describe("Vec2", function () {
     beforeEach(function () {
         this.v0 = new Vec2(1, 0);
         this.v1 = new Vec2(0, 1);
+    });
+
+    describe("#fromJSON", function () {
+        it("should turn a plain object into a Vec2 instance", function () {
+            const o = {x: 1, y: 9};
+            const r = Vec2.fromJSON(o);
+            expect(r.x).to.equal(1);
+            expect(r.y).to.equal(9);
+            expect(r).to.be.an.instanceof(Vec2);
+        });
     });
 
     describe("#add", function () {
@@ -124,6 +134,14 @@ describe("Vec2", function () {
         it ("should check if another vector is equivalent", function () {
             expect(this.v0.equals(this.v0)).to.be.true;
             expect(this.v1.equals(this.v0)).to.be.false;
+        });
+    });
+
+    describe("#toJSON", function () {
+        it("should turn a Vec2 instance into a plain object", function () {
+            const r = this.v0.toJSON();
+            expect(r.x).to.equal(1);
+            expect(r.y).to.equal(0);
         });
     });
 

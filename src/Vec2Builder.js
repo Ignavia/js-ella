@@ -8,6 +8,19 @@ import Vec2 from "./Vec2.js";
 export default class Vec2Builder {
 
     /**
+     * Creates a Vec2Builder object from the given plain object.
+     *
+     * @param {Object} json
+     * The plain object to parse.
+     *
+     * @return {Vec2Builder}
+     * The created vector.
+     */
+    static fromJSON(json) {
+        return new Vec2Builder(json.x, json.y);
+    }
+
+    /**
      * Makes a builder representing the given vector.
      *
      * @param {Vec2} v
@@ -203,5 +216,18 @@ export default class Vec2Builder {
      */
     equals(v) {
         return this.x === v.x && this.y === v.y;
+    }
+
+    /**
+     * Serializes this vector.
+     *
+     * @return {Object}
+     * The serialized vector.
+     */
+    toJSON() {
+        return {
+            x: this.x,
+            y: this.y,
+        };
     }
 }

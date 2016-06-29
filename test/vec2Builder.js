@@ -1,10 +1,20 @@
 import {expect} from "chai";
 
-import {Vec2, Vec2Builder} from "../src/ella.js";
+import {Vec2, Vec2Builder} from "../src/index.js";
 
 describe("Vec2Builder", function () {
     beforeEach(function () {
         this.v0 = new Vec2Builder(1, 0);
+    });
+
+    describe("#fromJSON", function () {
+        it("should turn a plain object into a Vec2Builder instance", function () {
+            const o = {x: 1, y: 9};
+            const r = Vec2Builder.fromJSON(o);
+            expect(r.x).to.equal(1);
+            expect(r.y).to.equal(9);
+            expect(r).to.be.an.instanceof(Vec2Builder);
+        });
     });
 
     describe("#fromVec2", function () {
@@ -130,6 +140,14 @@ describe("Vec2Builder", function () {
             const v1 = new Vec2Builder(3, 4);
             expect(this.v0.equals(this.v0)).to.be.true;
             expect(this.v0.equals(v1)).to.be.false;
+        });
+    });
+
+    describe("#toJSON", function () {
+        it("should turn a Vec2Builder instance into a plain object", function () {
+            const r = this.v0.toJSON();
+            expect(r.x).to.equal(1);
+            expect(r.y).to.equal(0);
         });
     });
 
