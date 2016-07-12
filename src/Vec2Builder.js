@@ -41,6 +41,7 @@ export default class Vec2Builder {
      * The y-coordinate.
      */
     constructor(x, y) {
+        Vec2Builder.counter++;
 
         /**
          * The x-coordinate.
@@ -60,16 +61,19 @@ export default class Vec2Builder {
     /**
      * Adds another vector to this one.
      *
-     * @param {number} x
-     * The x coordinate of the vector to add.
+     * @param {Object} v
+     * The vector to add.
      *
-     * @param {number} y
-     * The y coordinate of the vector to add.
+     * @param {number} v.x
+     * The x-coordinate of the vector to add.
+     *
+     * @param {number} v.y
+     * The y-coordinate of the vector to add.
      *
      * @return {Vec2Builder}
      * This builder.
      */
-    add(x, y) {
+    add({x, y}) {
         this.x += x;
         this.y += y;
         return this;
@@ -78,16 +82,19 @@ export default class Vec2Builder {
     /**
      * Subtracts another vector from this one.
      *
-     * @param {number} x
-     * The x coordinate of the vector to subtract.
+     * @param {Object} v
+     * The vector to subtract.
      *
-     * @param {number} y
-     * The y coordinate of the vector to subtract.
+     * @param {number} v.x
+     * The x-coordinate of the vector to subtract.
+     *
+     * @param {number} v.y
+     * The y-coordinate of the vector to subtract.
      *
      * @return {Vec2Builder}
      * This builder.
      */
-    sub(x, y) {
+    sub({x, y}) {
         this.x -= x;
         this.y -= y;
         return this;
@@ -149,16 +156,19 @@ export default class Vec2Builder {
     /**
      * Calculates the dot product of this vector and the given one.
      *
-     * @param {number} x
-     * The x coordinate of the other vector.
+     * @param {Object} v
+     * The second vector.
      *
-     * @param {number} y
-     * The y coordinate of the other vector.
+     * @param {number} v.x
+     * The x-coordinate of the second vector.
+     *
+     * @param {number} v.y
+     * The y-coordinate of the second vector.
      *
      * @return {number}
-     * This vector.
+     * The dot product of the two vectors.
      */
-    dot(x, y) {
+    dot({x, y}) {
         return this.x * x + this.y * y;
     }
 
@@ -208,14 +218,20 @@ export default class Vec2Builder {
     /**
      * Checks if the given vector is equivalent to this one.
      *
-     * @param {Vec2} v
+     * @param {Object} v
      * The vector to compare to.
+     *
+     * @param {number} v.x
+     * The x-coordinate of the vector to compare to.
+     *
+     * @param {number} v.y
+     * The y-coordinate of the vector to compare to.
      *
      * @return {boolean}
      * The result of the test.
      */
-    equals(v) {
-        return this.x === v.x && this.y === v.y;
+    equals({x, y}) {
+        return this.x === x && this.y === y;
     }
 
     /**
@@ -231,3 +247,4 @@ export default class Vec2Builder {
         };
     }
 }
+Vec2Builder.counter = 0;

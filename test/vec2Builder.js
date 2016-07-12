@@ -27,7 +27,7 @@ describe("Vec2Builder", function () {
 
     describe("#add", function () {
         it("should add the vector", function () {
-            this.v0.add(0, 1);
+            this.v0.add({x: 0, y: 1});
             expect(this.v0.x).to.equal(1);
             expect(this.v0.y).to.equal(1);
         });
@@ -40,7 +40,7 @@ describe("Vec2Builder", function () {
 
     describe("#sub", function () {
         it("should subtract the vector", function () {
-            this.v0.sub(0, 1);
+            this.v0.sub({x: 0, y: 1});
             expect(this.v0.x).to.equal(1);
             expect(this.v0.y).to.equal(-1);
         });
@@ -103,7 +103,7 @@ describe("Vec2Builder", function () {
 
     describe("#dot", function () {
         it("should return the dot product of the vectors", function () {
-            const r0 = this.v0.dot(0, 1);
+            const r0 = this.v0.dot({x: 0, y: 1});
             expect(r0).to.equal(0);
         });
     });
