@@ -1,0 +1,17 @@
+{
+  "coverage": "100%",
+  "expectCount": 34,
+  "actualCount": 34,
+  "files": {
+    "src/Vec2.js": {
+      "expectCount": 16,
+      "actualCount": 16,
+      "undocumentLines": []
+    },
+    "src/Vec2Builder.js": {
+      "expectCount": 18,
+      "actualCount": 18,
+      "undocumentLines": []
+    }
+  }
+}

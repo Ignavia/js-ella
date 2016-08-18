@@ -1,0 +1,2075 @@
+[
+  {
+    "__docId__": 0,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "src/Vec2.js",
+    "memberof": null,
+    "longname": "src/Vec2.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1,
+    "content": "/**\n * A two dimensional vector.\n */\nexport default class Vec2 {\n\n    /**\n     * Creates a Vec2 object from the given plain object.\n     *\n     * @param {Object} json\n     * The plain object to parse.\n     *\n     * @return {Vec2}\n     * The created vector.\n     */\n    static fromJSON(json) {\n        return new Vec2(json.x, json.y);\n    }\n\n    /**\n     * @param {number} x\n     * The x-coordinate.\n     *\n     * @param {number} y\n     * The y-coordinate.\n     */\n    constructor(x, y) {\n        Vec2.counter++;\n\n        /**\n         * The x-coordinate.\n         *\n         * @type {number}\n         */\n        this.x = x;\n\n        /**\n         * The y-coordinate.\n         *\n         * @type {number}\n         */\n        this.y = y;\n    }\n\n    /**\n     * Adds another vector to this vector. The original vectors remain\n     * unaffected.\n     *\n     * @param {Object} v\n     * The vector to add.\n     *\n     * @param {number} v.x\n     * The x-coordinate of the vector to add.\n     *\n     * @param {number} v.y\n     * The y-coordinate of the vector to add.\n     *\n     * @return {Vec2}\n     * The sum of the vectors.\n     */\n    add({x, y}) {\n        return new Vec2(this.x + x, this.y + y);\n    }\n\n    /**\n     * Subtracts another vector from this vector. The original vectors remain\n     * unaffected.\n     *\n     * @param {Object} v\n     * The vector to subtract.\n     *\n     * @param {number} v.x\n     * The x-coordinate of the vector to subtract.\n     *\n     * @param {number} v.y\n     * The y-coordinate of the vector to subtract.\n     *\n     * @return {Vec2}\n     * The difference between the vectors.\n     */\n    sub({x, y}) {\n        return new Vec2(this.x - x, this.y - y);\n    }\n\n    /**\n     * Multiplies this vector by a scalar. The original vector remains\n     * unaffected.\n     *\n     * @param {number} s\n     * The scalar by which the vector gets multiplied.\n     *\n     * @return {Vec2}\n     * The product of vector and scalar.\n     */\n    mul(s) {\n        return new Vec2(this.x * s, this.y * s);\n    }\n\n    /**\n     * Divides this vector by a scalar. The original vector remains unaffected.\n     *\n     * @param {number} s\n     * The scalar by which the vector gets divided.\n     *\n     * @return {Vec2}\n     * The quotient of vector and scalar.\n     */\n    div(s) {\n        return new Vec2(this.x / s, this.y / s);\n    }\n\n    /**\n     * Calculates the length of the vector. The original vector remains\n     * unaffected.\n     *\n     * @return {number}\n     * The length of the vector.\n     */\n    length() {\n        return Math.sqrt(this.x * this.x + this.y * this.y);\n    }\n\n    /**\n     * Creates a vector that points in the same direction as the original vector\n     * but has length 1. The original vector remains unaffected.\n     *\n     * @return {Vec2}\n     * The normalized vector.\n     */\n    normalize() {\n        return this.div(this.length());\n    }\n\n    /**\n     * Calculates the dot product of this vector and the given vector. The\n     * original vectors remain unaffected.\n     *\n     * @param {Object} v\n     * The second vector.\n     *\n     * @param {number} v.x\n     * The x-coordinate of the second vector.\n     *\n     * @param {number} v.y\n     * The y-coordinate of the second vector.\n     *\n     * @return {number}\n     * The dot product of the two vectors.\n     */\n    dot({x, y}) {\n        return this.x * x + this.y * y;\n    }\n\n    /**\n     * Rotates this vector by the given angle. The original vector remains\n     * unaffected.\n     *\n     * @param {number} alpha\n     * The angle by which to rotate given in radians.\n     *\n     * @return {Vec2}\n     * The rotated vector.\n     */\n    rotate(alpha) {\n        const cos = Math.cos(alpha);\n        const sin = Math.sin(alpha);\n\n        return new Vec2(\n            this.x * cos - this.y * sin,\n            this.x * sin + this.y * cos\n        );\n    }\n\n    /**\n     * Returns a textual representation of this vector.\n     *\n     * @return {string}\n     * A textual representation of this vector.\n     *\n     * @override\n     */\n    toString() {\n        return `(${this.x}, ${this.y})`;\n    }\n\n    /**\n     * Checks if the given vector is equivalent to this one.\n     *\n     * @param {Object} v\n     * The vector to compare to.\n     *\n     * @param {number} v.x\n     * The x-coordinate of the vector to compare to.\n     *\n     * @param {number} v.y\n     * The y-coordinate of the vector to compare to.\n     *\n     * @return {boolean}\n     * The result of the test.\n     */\n    equals({x, y}) {\n        return this.x === x && this.y === y;\n    }\n\n    /**\n     * Serializes this vector.\n     *\n     * @return {Object}\n     * The serialized vector.\n     */\n    toJSON() {\n        return {\n            x: this.x,\n            y: this.y,\n        };\n    }\n}\n\nVec2.counter = 0;"
+  },
+  {
+    "__docId__": 1,
+    "kind": "class",
+    "static": true,
+    "variation": null,
+    "name": "Vec2",
+    "memberof": "src/Vec2.js",
+    "longname": "src/Vec2.js~Vec2",
+    "access": null,
+    "export": true,
+    "importPath": "@ignavia/ella/src/Vec2.js",
+    "importStyle": "Vec2",
+    "description": "A two dimensional vector.",
+    "lineNumber": 4,
+    "interface": false
+  },
+  {
+    "__docId__": 2,
+    "kind": "method",
+    "static": true,
+    "variation": null,
+    "name": "fromJSON",
+    "memberof": "src/Vec2.js~Vec2",
+    "longname": "src/Vec2.js~Vec2.fromJSON",
+    "access": null,
+    "description": "Creates a Vec2 object from the given plain object.",
+    "lineNumber": 15,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "json",
+        "description": "The plain object to parse."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Vec2"
+      ],
+      "spread": false,
+      "description": "The created vector."
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 3,
+    "kind": "constructor",
+    "static": false,
+    "variation": null,
+    "name": "constructor",
+    "memberof": "src/Vec2.js~Vec2",
+    "longname": "src/Vec2.js~Vec2#constructor",
+    "access": null,
+    "description": "",
+    "lineNumber": 26,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "x",
+        "description": "The x-coordinate."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "y",
+        "description": "The y-coordinate."
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 4,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "x",
+    "memberof": "src/Vec2.js~Vec2",
+    "longname": "src/Vec2.js~Vec2#x",
+    "access": null,
+    "description": "The x-coordinate.",
+    "lineNumber": 34,
+    "type": {
+      "nullable": null,
+      "types": [
+        "number"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 5,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "y",
+    "memberof": "src/Vec2.js~Vec2",
+    "longname": "src/Vec2.js~Vec2#y",
+    "access": null,
+    "description": "The y-coordinate.",
+    "lineNumber": 41,
+    "type": {
+      "nullable": null,
+      "types": [
+        "number"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 6,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "add",
+    "memberof": "src/Vec2.js~Vec2",
+    "longname": "src/Vec2.js~Vec2#add",
+    "access": null,
+    "description": "Adds another vector to this vector. The original vectors remain\nunaffected.",
+    "lineNumber": 60,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "v",
+        "description": "The vector to add."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "v.x",
+        "description": "The x-coordinate of the vector to add."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "v.y",
+        "description": "The y-coordinate of the vector to add."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Vec2"
+      ],
+      "spread": false,
+      "description": "The sum of the vectors."
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 7,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "sub",
+    "memberof": "src/Vec2.js~Vec2",
+    "longname": "src/Vec2.js~Vec2#sub",
+    "access": null,
+    "description": "Subtracts another vector from this vector. The original vectors remain\nunaffected.",
+    "lineNumber": 80,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "v",
+        "description": "The vector to subtract."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "v.x",
+        "description": "The x-coordinate of the vector to subtract."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "v.y",
+        "description": "The y-coordinate of the vector to subtract."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Vec2"
+      ],
+      "spread": false,
+      "description": "The difference between the vectors."
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 8,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "mul",
+    "memberof": "src/Vec2.js~Vec2",
+    "longname": "src/Vec2.js~Vec2#mul",
+    "access": null,
+    "description": "Multiplies this vector by a scalar. The original vector remains\nunaffected.",
+    "lineNumber": 94,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "s",
+        "description": "The scalar by which the vector gets multiplied."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Vec2"
+      ],
+      "spread": false,
+      "description": "The product of vector and scalar."
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 9,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "div",
+    "memberof": "src/Vec2.js~Vec2",
+    "longname": "src/Vec2.js~Vec2#div",
+    "access": null,
+    "description": "Divides this vector by a scalar. The original vector remains unaffected.",
+    "lineNumber": 107,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "s",
+        "description": "The scalar by which the vector gets divided."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Vec2"
+      ],
+      "spread": false,
+      "description": "The quotient of vector and scalar."
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 10,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "length",
+    "memberof": "src/Vec2.js~Vec2",
+    "longname": "src/Vec2.js~Vec2#length",
+    "access": null,
+    "description": "Calculates the length of the vector. The original vector remains\nunaffected.",
+    "lineNumber": 118,
+    "params": [],
+    "return": {
+      "nullable": null,
+      "types": [
+        "number"
+      ],
+      "spread": false,
+      "description": "The length of the vector."
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 11,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "normalize",
+    "memberof": "src/Vec2.js~Vec2",
+    "longname": "src/Vec2.js~Vec2#normalize",
+    "access": null,
+    "description": "Creates a vector that points in the same direction as the original vector\nbut has length 1. The original vector remains unaffected.",
+    "lineNumber": 129,
+    "params": [],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Vec2"
+      ],
+      "spread": false,
+      "description": "The normalized vector."
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 12,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "dot",
+    "memberof": "src/Vec2.js~Vec2",
+    "longname": "src/Vec2.js~Vec2#dot",
+    "access": null,
+    "description": "Calculates the dot product of this vector and the given vector. The\noriginal vectors remain unaffected.",
+    "lineNumber": 149,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "v",
+        "description": "The second vector."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "v.x",
+        "description": "The x-coordinate of the second vector."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "v.y",
+        "description": "The y-coordinate of the second vector."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "number"
+      ],
+      "spread": false,
+      "description": "The dot product of the two vectors."
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 13,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "rotate",
+    "memberof": "src/Vec2.js~Vec2",
+    "longname": "src/Vec2.js~Vec2#rotate",
+    "access": null,
+    "description": "Rotates this vector by the given angle. The original vector remains\nunaffected.",
+    "lineNumber": 163,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "alpha",
+        "description": "The angle by which to rotate given in radians."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Vec2"
+      ],
+      "spread": false,
+      "description": "The rotated vector."
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 14,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "toString",
+    "memberof": "src/Vec2.js~Vec2",
+    "longname": "src/Vec2.js~Vec2#toString",
+    "access": null,
+    "description": "Returns a textual representation of this vector.",
+    "lineNumber": 181,
+    "params": [],
+    "return": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": "A textual representation of this vector."
+    },
+    "override": true,
+    "generator": false
+  },
+  {
+    "__docId__": 15,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "equals",
+    "memberof": "src/Vec2.js~Vec2",
+    "longname": "src/Vec2.js~Vec2#equals",
+    "access": null,
+    "description": "Checks if the given vector is equivalent to this one.",
+    "lineNumber": 200,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "v",
+        "description": "The vector to compare to."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "v.x",
+        "description": "The x-coordinate of the vector to compare to."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "v.y",
+        "description": "The y-coordinate of the vector to compare to."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "boolean"
+      ],
+      "spread": false,
+      "description": "The result of the test."
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 16,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "toJSON",
+    "memberof": "src/Vec2.js~Vec2",
+    "longname": "src/Vec2.js~Vec2#toJSON",
+    "access": null,
+    "description": "Serializes this vector.",
+    "lineNumber": 210,
+    "params": [],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Object"
+      ],
+      "spread": false,
+      "description": "The serialized vector."
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 17,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "src/Vec2Builder.js",
+    "memberof": null,
+    "longname": "src/Vec2Builder.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1,
+    "content": "import Vec2 from \"./Vec2.js\";\n\n/**\n * A builder for a two dimensional vector. It can be use to perform vector\n * operations without allocating a lot of temporary objects. All calculations\n * are performed in place.\n */\nexport default class Vec2Builder {\n\n    /**\n     * Creates a Vec2Builder object from the given plain object.\n     *\n     * @param {Object} json\n     * The plain object to parse.\n     *\n     * @return {Vec2Builder}\n     * The created vector.\n     */\n    static fromJSON(json) {\n        return new Vec2Builder(json.x, json.y);\n    }\n\n    /**\n     * Makes a builder representing the given vector.\n     *\n     * @param {Vec2} v\n     * The vector to make a builder for.\n     *\n     * @return {Vec2Builder}\n     * The builder.\n     */\n    static fromVec2(v) {\n        return new Vec2Builder(v.x, v.y);\n    }\n\n    /**\n     * @param {number} x\n     * The x-coordinate.\n     *\n     * @param {number} y\n     * The y-coordinate.\n     */\n    constructor(x, y) {\n        Vec2Builder.counter++;\n\n        /**\n         * The x-coordinate.\n         *\n         * @type {number}\n         */\n        this.x = x;\n\n        /**\n         * The y-coordinate.\n         *\n         * @type {number}\n         */\n        this.y = y;\n    }\n\n    /**\n     * Adds another vector to this one.\n     *\n     * @param {Object} v\n     * The vector to add.\n     *\n     * @param {number} v.x\n     * The x-coordinate of the vector to add.\n     *\n     * @param {number} v.y\n     * The y-coordinate of the vector to add.\n     *\n     * @return {Vec2Builder}\n     * This builder.\n     */\n    add({x, y}) {\n        this.x += x;\n        this.y += y;\n        return this;\n    }\n\n    /**\n     * Subtracts another vector from this one.\n     *\n     * @param {Object} v\n     * The vector to subtract.\n     *\n     * @param {number} v.x\n     * The x-coordinate of the vector to subtract.\n     *\n     * @param {number} v.y\n     * The y-coordinate of the vector to subtract.\n     *\n     * @return {Vec2Builder}\n     * This builder.\n     */\n    sub({x, y}) {\n        this.x -= x;\n        this.y -= y;\n        return this;\n    }\n\n    /**\n     * Multiplies this vector with a scalar.\n     *\n     * @param {number} s\n     * The scalar to multiply with.\n     *\n     * @return {Vec2Builder}\n     * This builder.\n     */\n    mul(s) {\n        this.x *= s;\n        this.y *= s;\n        return this;\n    }\n\n    /**\n     * Divides this vector by a scalar.\n     *\n     * @param {number} s\n     * The scalar to divide by.\n     *\n     * @return {Vec2Builder}\n     * This builder.\n     */\n    div(s) {\n        this.x /= s;\n        this.y /= s;\n        return this;\n    }\n\n    /**\n     * Calculates the length of this vector.\n     *\n     * @return {number}\n     * The length of the vector.\n     */\n    length() {\n        return Math.sqrt(this.x * this.x + this.y * this.y);\n    }\n\n    /**\n     * Sets the length of this vector to 1 while keeping its direction.\n     *\n     * @return {Vec2Builder}\n     * This builder.\n     */\n    normalize() {\n        const len = this.length();\n        this.x /= len;\n        this.y /= len;\n        return this;\n    }\n\n    /**\n     * Calculates the dot product of this vector and the given one.\n     *\n     * @param {Object} v\n     * The second vector.\n     *\n     * @param {number} v.x\n     * The x-coordinate of the second vector.\n     *\n     * @param {number} v.y\n     * The y-coordinate of the second vector.\n     *\n     * @return {number}\n     * The dot product of the two vectors.\n     */\n    dot({x, y}) {\n        return this.x * x + this.y * y;\n    }\n\n    /**\n     * Rotates this vector by the given angle.\n     *\n     * @param {number} alpha\n     * The angle by which to rotate given in radians.\n     *\n     * @return {Vec2}\n     * This vector.\n     */\n    rotate(alpha) {\n        const cos = Math.cos(alpha);\n        const sin = Math.sin(alpha);\n        const x   = this.x;\n        const y   = this.y;\n\n        this.x = x * cos - y * sin;\n        this.y = x * sin + y * cos;\n\n        return this;\n    }\n\n    /**\n     * Returns the vector this builder represents.\n     *\n     * @return {Vec2}\n     * The vector represented by this builder.\n     */\n    toVec2() {\n        return new Vec2(this.x, this.y);\n    }\n\n    /**\n     * Returns a textual representation of this vector.\n     *\n     * @return {string}\n     * A textual representation of this vector.\n     *\n     * @override\n     */\n    toString() {\n        return `(${this.x}, ${this.y})`;\n    }\n\n    /**\n     * Checks if the given vector is equivalent to this one.\n     *\n     * @param {Object} v\n     * The vector to compare to.\n     *\n     * @param {number} v.x\n     * The x-coordinate of the vector to compare to.\n     *\n     * @param {number} v.y\n     * The y-coordinate of the vector to compare to.\n     *\n     * @return {boolean}\n     * The result of the test.\n     */\n    equals({x, y}) {\n        return this.x === x && this.y === y;\n    }\n\n    /**\n     * Serializes this vector.\n     *\n     * @return {Object}\n     * The serialized vector.\n     */\n    toJSON() {\n        return {\n            x: this.x,\n            y: this.y,\n        };\n    }\n}\nVec2Builder.counter = 0;\n"
+  },
+  {
+    "__docId__": 18,
+    "kind": "class",
+    "static": true,
+    "variation": null,
+    "name": "Vec2Builder",
+    "memberof": "src/Vec2Builder.js",
+    "longname": "src/Vec2Builder.js~Vec2Builder",
+    "access": null,
+    "export": true,
+    "importPath": "@ignavia/ella/src/Vec2Builder.js",
+    "importStyle": "Vec2Builder",
+    "description": "A builder for a two dimensional vector. It can be use to perform vector\noperations without allocating a lot of temporary objects. All calculations\nare performed in place.",
+    "lineNumber": 8,
+    "interface": false
+  },
+  {
+    "__docId__": 19,
+    "kind": "method",
+    "static": true,
+    "variation": null,
+    "name": "fromJSON",
+    "memberof": "src/Vec2Builder.js~Vec2Builder",
+    "longname": "src/Vec2Builder.js~Vec2Builder.fromJSON",
+    "access": null,
+    "description": "Creates a Vec2Builder object from the given plain object.",
+    "lineNumber": 19,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "json",
+        "description": "The plain object to parse."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Vec2Builder"
+      ],
+      "spread": false,
+      "description": "The created vector."
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 20,
+    "kind": "method",
+    "static": true,
+    "variation": null,
+    "name": "fromVec2",
+    "memberof": "src/Vec2Builder.js~Vec2Builder",
+    "longname": "src/Vec2Builder.js~Vec2Builder.fromVec2",
+    "access": null,
+    "description": "Makes a builder representing the given vector.",
+    "lineNumber": 32,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Vec2"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "v",
+        "description": "The vector to make a builder for."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Vec2Builder"
+      ],
+      "spread": false,
+      "description": "The builder."
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 21,
+    "kind": "constructor",
+    "static": false,
+    "variation": null,
+    "name": "constructor",
+    "memberof": "src/Vec2Builder.js~Vec2Builder",
+    "longname": "src/Vec2Builder.js~Vec2Builder#constructor",
+    "access": null,
+    "description": "",
+    "lineNumber": 43,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "x",
+        "description": "The x-coordinate."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "y",
+        "description": "The y-coordinate."
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 22,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "x",
+    "memberof": "src/Vec2Builder.js~Vec2Builder",
+    "longname": "src/Vec2Builder.js~Vec2Builder#x",
+    "access": null,
+    "description": "The x-coordinate.",
+    "lineNumber": 51,
+    "type": {
+      "nullable": null,
+      "types": [
+        "number"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 23,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "y",
+    "memberof": "src/Vec2Builder.js~Vec2Builder",
+    "longname": "src/Vec2Builder.js~Vec2Builder#y",
+    "access": null,
+    "description": "The y-coordinate.",
+    "lineNumber": 58,
+    "type": {
+      "nullable": null,
+      "types": [
+        "number"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 24,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "add",
+    "memberof": "src/Vec2Builder.js~Vec2Builder",
+    "longname": "src/Vec2Builder.js~Vec2Builder#add",
+    "access": null,
+    "description": "Adds another vector to this one.",
+    "lineNumber": 76,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "v",
+        "description": "The vector to add."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "v.x",
+        "description": "The x-coordinate of the vector to add."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "v.y",
+        "description": "The y-coordinate of the vector to add."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Vec2Builder"
+      ],
+      "spread": false,
+      "description": "This builder."
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 25,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "x",
+    "memberof": "src/Vec2Builder.js~Vec2Builder",
+    "longname": "src/Vec2Builder.js~Vec2Builder#x",
+    "access": null,
+    "description": null,
+    "lineNumber": 77,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 26,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "y",
+    "memberof": "src/Vec2Builder.js~Vec2Builder",
+    "longname": "src/Vec2Builder.js~Vec2Builder#y",
+    "access": null,
+    "description": null,
+    "lineNumber": 78,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 27,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "sub",
+    "memberof": "src/Vec2Builder.js~Vec2Builder",
+    "longname": "src/Vec2Builder.js~Vec2Builder#sub",
+    "access": null,
+    "description": "Subtracts another vector from this one.",
+    "lineNumber": 97,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "v",
+        "description": "The vector to subtract."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "v.x",
+        "description": "The x-coordinate of the vector to subtract."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "v.y",
+        "description": "The y-coordinate of the vector to subtract."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Vec2Builder"
+      ],
+      "spread": false,
+      "description": "This builder."
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 28,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "x",
+    "memberof": "src/Vec2Builder.js~Vec2Builder",
+    "longname": "src/Vec2Builder.js~Vec2Builder#x",
+    "access": null,
+    "description": null,
+    "lineNumber": 98,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 29,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "y",
+    "memberof": "src/Vec2Builder.js~Vec2Builder",
+    "longname": "src/Vec2Builder.js~Vec2Builder#y",
+    "access": null,
+    "description": null,
+    "lineNumber": 99,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 30,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "mul",
+    "memberof": "src/Vec2Builder.js~Vec2Builder",
+    "longname": "src/Vec2Builder.js~Vec2Builder#mul",
+    "access": null,
+    "description": "Multiplies this vector with a scalar.",
+    "lineNumber": 112,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "s",
+        "description": "The scalar to multiply with."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Vec2Builder"
+      ],
+      "spread": false,
+      "description": "This builder."
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 31,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "x",
+    "memberof": "src/Vec2Builder.js~Vec2Builder",
+    "longname": "src/Vec2Builder.js~Vec2Builder#x",
+    "access": null,
+    "description": null,
+    "lineNumber": 113,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 32,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "y",
+    "memberof": "src/Vec2Builder.js~Vec2Builder",
+    "longname": "src/Vec2Builder.js~Vec2Builder#y",
+    "access": null,
+    "description": null,
+    "lineNumber": 114,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 33,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "div",
+    "memberof": "src/Vec2Builder.js~Vec2Builder",
+    "longname": "src/Vec2Builder.js~Vec2Builder#div",
+    "access": null,
+    "description": "Divides this vector by a scalar.",
+    "lineNumber": 127,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "s",
+        "description": "The scalar to divide by."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Vec2Builder"
+      ],
+      "spread": false,
+      "description": "This builder."
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 34,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "x",
+    "memberof": "src/Vec2Builder.js~Vec2Builder",
+    "longname": "src/Vec2Builder.js~Vec2Builder#x",
+    "access": null,
+    "description": null,
+    "lineNumber": 128,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 35,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "y",
+    "memberof": "src/Vec2Builder.js~Vec2Builder",
+    "longname": "src/Vec2Builder.js~Vec2Builder#y",
+    "access": null,
+    "description": null,
+    "lineNumber": 129,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 36,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "length",
+    "memberof": "src/Vec2Builder.js~Vec2Builder",
+    "longname": "src/Vec2Builder.js~Vec2Builder#length",
+    "access": null,
+    "description": "Calculates the length of this vector.",
+    "lineNumber": 139,
+    "params": [],
+    "return": {
+      "nullable": null,
+      "types": [
+        "number"
+      ],
+      "spread": false,
+      "description": "The length of the vector."
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 37,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "normalize",
+    "memberof": "src/Vec2Builder.js~Vec2Builder",
+    "longname": "src/Vec2Builder.js~Vec2Builder#normalize",
+    "access": null,
+    "description": "Sets the length of this vector to 1 while keeping its direction.",
+    "lineNumber": 149,
+    "params": [],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Vec2Builder"
+      ],
+      "spread": false,
+      "description": "This builder."
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 38,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "x",
+    "memberof": "src/Vec2Builder.js~Vec2Builder",
+    "longname": "src/Vec2Builder.js~Vec2Builder#x",
+    "access": null,
+    "description": null,
+    "lineNumber": 151,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 39,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "y",
+    "memberof": "src/Vec2Builder.js~Vec2Builder",
+    "longname": "src/Vec2Builder.js~Vec2Builder#y",
+    "access": null,
+    "description": null,
+    "lineNumber": 152,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 40,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "dot",
+    "memberof": "src/Vec2Builder.js~Vec2Builder",
+    "longname": "src/Vec2Builder.js~Vec2Builder#dot",
+    "access": null,
+    "description": "Calculates the dot product of this vector and the given one.",
+    "lineNumber": 171,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "v",
+        "description": "The second vector."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "v.x",
+        "description": "The x-coordinate of the second vector."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "v.y",
+        "description": "The y-coordinate of the second vector."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "number"
+      ],
+      "spread": false,
+      "description": "The dot product of the two vectors."
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 41,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "rotate",
+    "memberof": "src/Vec2Builder.js~Vec2Builder",
+    "longname": "src/Vec2Builder.js~Vec2Builder#rotate",
+    "access": null,
+    "description": "Rotates this vector by the given angle.",
+    "lineNumber": 184,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "alpha",
+        "description": "The angle by which to rotate given in radians."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Vec2"
+      ],
+      "spread": false,
+      "description": "This vector."
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 42,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "x",
+    "memberof": "src/Vec2Builder.js~Vec2Builder",
+    "longname": "src/Vec2Builder.js~Vec2Builder#x",
+    "access": null,
+    "description": null,
+    "lineNumber": 190,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 43,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "y",
+    "memberof": "src/Vec2Builder.js~Vec2Builder",
+    "longname": "src/Vec2Builder.js~Vec2Builder#y",
+    "access": null,
+    "description": null,
+    "lineNumber": 191,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 44,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "toVec2",
+    "memberof": "src/Vec2Builder.js~Vec2Builder",
+    "longname": "src/Vec2Builder.js~Vec2Builder#toVec2",
+    "access": null,
+    "description": "Returns the vector this builder represents.",
+    "lineNumber": 202,
+    "params": [],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Vec2"
+      ],
+      "spread": false,
+      "description": "The vector represented by this builder."
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 45,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "toString",
+    "memberof": "src/Vec2Builder.js~Vec2Builder",
+    "longname": "src/Vec2Builder.js~Vec2Builder#toString",
+    "access": null,
+    "description": "Returns a textual representation of this vector.",
+    "lineNumber": 214,
+    "params": [],
+    "return": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": "A textual representation of this vector."
+    },
+    "override": true,
+    "generator": false
+  },
+  {
+    "__docId__": 46,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "equals",
+    "memberof": "src/Vec2Builder.js~Vec2Builder",
+    "longname": "src/Vec2Builder.js~Vec2Builder#equals",
+    "access": null,
+    "description": "Checks if the given vector is equivalent to this one.",
+    "lineNumber": 233,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "v",
+        "description": "The vector to compare to."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "v.x",
+        "description": "The x-coordinate of the vector to compare to."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "v.y",
+        "description": "The y-coordinate of the vector to compare to."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "boolean"
+      ],
+      "spread": false,
+      "description": "The result of the test."
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 47,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "toJSON",
+    "memberof": "src/Vec2Builder.js~Vec2Builder",
+    "longname": "src/Vec2Builder.js~Vec2Builder#toJSON",
+    "access": null,
+    "description": "Serializes this vector.",
+    "lineNumber": 243,
+    "params": [],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Object"
+      ],
+      "spread": false,
+      "description": "The serialized vector."
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 48,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "src/index.js",
+    "memberof": null,
+    "longname": "src/index.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1,
+    "content": "export Vec2        from \"./Vec2.js\";\nexport Vec2Builder from \"./Vec2Builder.js\";\n"
+  },
+  {
+    "__docId__": 50,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Infinity",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Infinity",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Infinity",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 51,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "NaN",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~NaN",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 52,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "undefined",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~undefined",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 53,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "null",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~null",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 54,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Object",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Object",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 55,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "object",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~object",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 56,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Function",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Function",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 57,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "function",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~function",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 58,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Boolean",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Boolean",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 59,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "boolean",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~boolean",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 60,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Symbol",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Symbol",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 61,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Error",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Error",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 62,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "EvalError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/EvalError",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~EvalError",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 63,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "InternalError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/InternalError",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~InternalError",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 64,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "RangeError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RangeError",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~RangeError",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 65,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "ReferenceError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ReferenceError",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~ReferenceError",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 66,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "SyntaxError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SyntaxError",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~SyntaxError",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 67,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "TypeError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypeError",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~TypeError",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 68,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "URIError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/URIError",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~URIError",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 69,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Number",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Number",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 70,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "number",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~number",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 71,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Date",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Date",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 72,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "String",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~String",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 73,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "string",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~string",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 74,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "RegExp",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~RegExp",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 75,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 76,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Int8Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int8Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Int8Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 77,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Uint8Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Uint8Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 78,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Uint8ClampedArray",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8ClampedArray",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Uint8ClampedArray",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 79,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Int16Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int16Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Int16Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 80,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Uint16Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint16Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Uint16Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 81,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Int32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int32Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Int32Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 82,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Uint32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint32Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Uint32Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 83,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Float32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float32Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Float32Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 84,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Float64Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float64Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Float64Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 85,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Map",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Map",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 86,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Set",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Set",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 87,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "WeakMap",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~WeakMap",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 88,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "WeakSet",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~WeakSet",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 89,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "ArrayBuffer",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~ArrayBuffer",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 90,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "DataView",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~DataView",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 91,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "JSON",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~JSON",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 92,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Promise",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Promise",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 93,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Generator",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Generator",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 94,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "GeneratorFunction",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/GeneratorFunction",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~GeneratorFunction",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 95,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Reflect",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Reflect",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 96,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Proxy",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Proxy",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 98,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "CanvasRenderingContext2D",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "longname": "BuiltinExternal/WebAPIExternal.js~CanvasRenderingContext2D",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 99,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "DocumentFragment",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/DocumentFragment",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "longname": "BuiltinExternal/WebAPIExternal.js~DocumentFragment",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 100,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Element",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/Element",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "longname": "BuiltinExternal/WebAPIExternal.js~Element",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 101,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Event",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/Event",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "longname": "BuiltinExternal/WebAPIExternal.js~Event",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 102,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Node",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/Node",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "longname": "BuiltinExternal/WebAPIExternal.js~Node",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 103,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "NodeList",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/NodeList",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "longname": "BuiltinExternal/WebAPIExternal.js~NodeList",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 104,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "XMLHttpRequest",
+    "externalLink": "https://developer.mozilla.org/en/docs/Web/API/XMLHttpRequest",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "longname": "BuiltinExternal/WebAPIExternal.js~XMLHttpRequest",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 105,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "AudioContext",
+    "externalLink": "https://developer.mozilla.org/en/docs/Web/API/AudioContext",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "longname": "BuiltinExternal/WebAPIExternal.js~AudioContext",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  }
+]
